@@ -1,0 +1,7 @@
+# Render Blueprint: Render builds the Dockerfile and redeploys on every push.
+services:
+  - type: web
+    name: talib-planner
+    runtime: docker
+    plan: free
+    autoDeploy: true

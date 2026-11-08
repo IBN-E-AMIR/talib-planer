@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html.dark { color-scheme: dark; }
+body { @apply bg-cream text-slate-800 font-sans antialiased; }
+html.dark body { @apply bg-night text-slate-100; }
+html[dir='rtl'] body { font-family: 'Noto Nastaliq Urdu', 'Inter', serif; line-height: 2; }
+
+.pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%23C9A227' stroke-opacity='.22' stroke-width='1'%3E%3Crect x='17' y='17' width='26' height='26'/%3E%3Crect x='17' y='17' width='26' height='26' transform='rotate(45 30 30)'/%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/svg%3E");
+}
+html.dark .pattern { opacity: 0.9; }
+
+.divider-star { @apply flex items-center gap-3 text-gold; }
+.divider-star::before, .divider-star::after { content: ''; @apply h-px flex-1 bg-gold/40; }
+
+@layer components {
+  .card { @apply rounded-2xl bg-white/90 p-4 shadow-md shadow-emerald/10 ring-1 ring-gold/30 backdrop-blur sm:p-5; }
+  html.dark .card { @apply bg-night-card/90 ring-gold/20 shadow-black/30; }
+  .btn { @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold; }
+  .btn-primary { @apply bg-emerald text-white hover:bg-emerald-light; }
+  .btn-gold { @apply bg-gold text-emerald-dark hover:bg-gold-light; }
+  .btn-ghost { @apply bg-emerald-soft text-emerald hover:bg-emerald/15; }
+  html.dark .btn-ghost { @apply bg-white/10 text-gold-light hover:bg-white/20; }
+  .btn-danger { @apply bg-red-50 text-red-700 hover:bg-red-100; }
+  .input { @apply min-h-[44px] w-full rounded-xl border border-emerald/20 bg-white px-3 py-2 text-sm focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40; }
+  html.dark .input { @apply border-white/15 bg-night text-slate-100; }
+  .label { @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-emerald/80; }
+  html.dark .label { @apply text-gold-light; }
+  .h1 { @apply font-arabic text-3xl font-bold text-emerald; }
+  html.dark .h1 { @apply text-gold-light; }
+  html[dir='rtl'] .h1 { @apply font-urdu; }
+  .muted { @apply text-sm text-slate-500; }
+  html.dark .muted { @apply text-slate-400; }
+}
